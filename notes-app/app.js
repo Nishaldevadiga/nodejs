@@ -1,5 +1,5 @@
-const fs=require('fs')
+const fn=require('./notes.js');
 
-fs.appendFileSync('notes.txt','dadayan');
+const val=fn();
 
-console.log("hello");
+console.log(val);
