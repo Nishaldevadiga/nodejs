@@ -1,5 +1,3 @@
-const fn=require('./notes.js');
+var validator = require('validator');
 
-const val=fn();
-
-console.log(val);
+console.log(validator.isEmail('foo@bar.com'));
