@@ -1,3 +1,6 @@
-var validator = require('validator');
+// const chalk=require('chalk');
 
-console.log(validator.isEmail('foo@bar.com'));
+
+// console.log(chalk.green('hello world'));
+
+import chalk from 'chalk';

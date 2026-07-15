@@ -10,6 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
+    "es6": "^0.0.7",
     "validator": "^13.15.35",
     "validators": "^0.3.1"
   }
