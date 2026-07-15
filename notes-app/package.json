@@ -16,6 +16,7 @@
     "es6": "^0.0.7",
     "nodemon": "^3.1.14",
     "validator": "^13.15.35",
-    "validators": "^0.3.1"
+    "validators": "^0.3.1",
+    "yargs": "^18.0.0"
   }
 }
