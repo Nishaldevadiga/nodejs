@@ -1,3 +1,3 @@
 const fs=require('fs')
 
-fs.appendFileSync('notes.txt','dadaya');
+fs.appendFileSync('notes.txt','dadayan');
