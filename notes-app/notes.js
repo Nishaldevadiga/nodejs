@@ -39,7 +39,20 @@ const loadNotes = function () {
 
 }
 
+const removeNotes=function(title){
+const notes=loadNotes();
+
+
+const rnotes=notes.filter(res=>res.title!=title);
+console.log(rnotes);
+saveNotes(rnotes);
+
+}
+
+
+
 export {
     getNotes,
-    addNote
+    addNote,
+    removeNotes
 };

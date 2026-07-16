@@ -1,7 +1,7 @@
 import { type } from 'node:os';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { getNotes, addNote } from './notes.js';
+import { getNotes, addNote, removeNotes } from './notes.js';
 const cli = yargs(hideBin(process.argv));
 
 
@@ -13,15 +13,15 @@ cli.command({
     builder: {
         title: {
             describe: "Note title",
-            type:'string'
+            type: 'string'
         }
     },
-    body:{
+    body: {
         describe: 'note body',
-        type:'string'
+        type: 'string'
     },
     handler: function (cli) {
-         addNote(cli.title,cli.body);
+        addNote(cli.title, cli.body);
     }
 })
 
@@ -31,8 +31,14 @@ cli.command({
 cli.command({
     command: 'remove',
     describe: 'remove a new note',
-    handler: function () {
-        console.log('remioving a new note')
+    builder: {
+        title: {
+            describe: 'Note title',
+            type:'string'
+        }
+    },
+    handler: function (argv) {
+        removeNotes(argv.title);
     }
 })
 
