@@ -1,6 +1,7 @@
 import { type } from 'node:os';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
+import { getNotes, addNote } from './notes.js';
 const cli = yargs(hideBin(process.argv));
 
 
@@ -20,8 +21,7 @@ cli.command({
         type:'string'
     },
     handler: function (cli) {
-         console.log('title: ' +cli.title);
-         console.log('Body: '+cli.body);
+         addNote(cli.title,cli.body);
     }
 })
 
