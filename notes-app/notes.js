@@ -40,6 +40,7 @@ const loadNotes = function () {
 }
 
 const removeNotes=function(title){
+    debugger
 const notes=loadNotes();
 
 
