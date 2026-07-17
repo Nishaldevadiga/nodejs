@@ -1,42 +1,17 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+console.log(__dirname)
+console.log(path.join(__dirname, '../public'))
 
 const app = express()
 
-const hello=function(){
-    debugger;
-    console.log("hello");
-}
-
-hello();
-
-app.get('/', (req, res) => {
-    debugger;
-    res.send([{
-        name: "nishal",
-        id: 45
-    }, {
-        name: "kiran",
-        id: 67
-    }])
-})
-
-app.get('/help', (req, res) => {
-    res.send('Help!')
-})
-
-app.get('/about', (req, res) => {
-    debugger
-    console.log('here');
-    res.send('<h2>About</h2>')
-})
-
-app.get('/weather', (req, res) => {
-    res.send({
-        location:"worcester",
-        weather:"sunny"
-    })
-})
-
+app.use(express.static(path.join(__dirname, '../public')))
 
 
 //app.com
