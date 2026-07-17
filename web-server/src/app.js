@@ -17,11 +17,14 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.send('about!')
+    res.send('<h2>About</h2>')
 })
 
 app.get('/weather', (req, res) => {
-    res.send('weather!')
+    res.send({
+        location:"worcester",
+        weather:"sunny"
+    })
 })
 
 
