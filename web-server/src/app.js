@@ -2,7 +2,15 @@ import express from 'express';
 
 const app = express()
 
-app.get('', (req, res) => {
+const hello=function(){
+    debugger;
+    console.log("hello");
+}
+
+hello();
+
+app.get('/', (req, res) => {
+    debugger;
     res.send([{
         name: "nishal",
         id: 45
@@ -17,6 +25,8 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
+    debugger
+    console.log('here');
     res.send('<h2>About</h2>')
 })
 

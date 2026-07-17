@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 const getNotes = function () {
+    debugger
     return 'Your Notes....'
 }
 

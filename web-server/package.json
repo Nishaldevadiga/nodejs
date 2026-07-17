@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js",
+    "dev:debug": "nodemon --inspect src/app.js",
+    "dev:debug-brk": "nodemon --inspect-brk src/app.js",
     "start": "node src/app.js"
   },
   "keywords": [],
