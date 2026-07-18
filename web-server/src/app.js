@@ -12,7 +12,7 @@ console.log(path.join(__dirname, '../public'))
 
 const app = express()
 const publicDirectoryPath=path.join(__dirname, '../public')
-const viewsPath=path.join(__dirname, '../templates')
+const viewsPath=path.join(__dirname, '../templates/views')
 
 app.set('view engine','hbs')
 app.set('views',viewsPath)
