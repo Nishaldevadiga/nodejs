@@ -22,7 +22,7 @@ hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicDirectoryPath))
 
-app.get('',(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('index',{
         title:"hbs content",
         name:"nishal sukumar"
@@ -36,6 +36,9 @@ app.get('/about',(req,res)=>{
     })
 })
 
+app.use((req,res)=>{
+    res.status(404).send("my 404 page");
+})
 
 //app.com
 //app.com/help
