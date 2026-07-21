@@ -36,6 +36,10 @@ app.get('/about',(req,res)=>{
     })
 })
 
+app.use('/about',(req,res)=>{
+    res.send('article not found')
+})
+
 app.use((req,res)=>{
     res.status(404).send("my 404 page");
 })
