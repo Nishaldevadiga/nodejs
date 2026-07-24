@@ -36,6 +36,11 @@ app.get('/about',(req,res)=>{
     })
 })
 
+app.get('/products',(req,res)=>{
+    res.send({
+        products:[]
+    })
+})
 app.use('/about',(req,res)=>{
     res.send('article not found')
 })
