@@ -37,6 +37,7 @@ app.get('/about',(req,res)=>{
 })
 
 app.get('/products',(req,res)=>{
+    console.log("query list",req.query);
     res.send({
         products:[]
     })
