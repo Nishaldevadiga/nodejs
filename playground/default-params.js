@@ -3,3 +3,4 @@ const greeter=(name)=>{
 }
 
 greeter('Nishal');
+
