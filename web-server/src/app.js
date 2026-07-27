@@ -39,7 +39,7 @@ app.get('/about',(req,res)=>{
 app.get('/products',(req,res)=>{
     
     if(!req.query.search){
-        res.send({
+       return res.send({
             error:'You must send a search query in the url'
         })
     }
