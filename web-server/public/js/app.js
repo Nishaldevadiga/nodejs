@@ -14,7 +14,7 @@ console.log("client loaded");
 async function recipe() {
     const prod = await fetch('https://dummyjson.com/recipes/1');
     const data = await prod.json();
-    console.log("recipe",data);
+    console.log(data);
 }
 
 recipe();
