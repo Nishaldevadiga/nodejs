@@ -1,6 +1,8 @@
-const greeter=(name)=>{
+const greeter=(name='user')=>{
     console.log('Hello '+name)
 }
 
 greeter('Nishal');
+
+greeter();
 
