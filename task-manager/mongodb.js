@@ -2,14 +2,20 @@
 
 import * as mongodb from 'mongodb';
 
-const mongoClient=mongodb.MongoClient;
+const MongoClient = mongodb.MongoClient;
 
-const connectionURL ='mongodb://127.0.0.1:27018';
-const database='task-manager';
+const connectionURL = 'mongodb://127.0.0.1:27018';
+const database = 'task-manager';
 
-mongoClient.connect(connectionURL,{useNewUrlParser:true},(err,client)=>{
-    if(err){
+async function main() {
+    const client = new MongoClient(connectionURL);
+
+    try {
+        await client.connect();
+        console.log('success');
+    } catch (err) {
         console.log('error');
     }
-        console.log('success');
-})
+}
+
+main();
