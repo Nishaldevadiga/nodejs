@@ -12,6 +12,9 @@ console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
 
 const app = express()
+const port= process.env.PORT
+
+
 const publicDirectoryPath=path.join(__dirname, '../public')
 const viewsPath=path.join(__dirname, '../templates/views')
 const partialsPath=path.join(__dirname, '../templates/partials')
@@ -60,7 +63,7 @@ app.use((req,res)=>{
 //app.com/help
 //app.com/about
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('server started...');
 })
 
