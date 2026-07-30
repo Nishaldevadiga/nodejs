@@ -17,10 +17,18 @@ async function main() {
         await client.connect();
 
         const db = client.db(database);
-       //6a6b91bd40ad6d28ee11f33d
-       
+        //6a6b91bd40ad6d28ee11f33d
+        const updateResult = await db.collection('users').updateOne({
+            _id: new ObjectID("6a6b91bd40ad6d28ee11f33d")
+        }, {
+            $set: {
+                name: 'iop modified'
+            }
+        })
 
-        console.log(user);
+        console.log(updateResult);
+
+
     } catch (error) {
         console.log('unable to connect to database or fetch document');
     } finally {
