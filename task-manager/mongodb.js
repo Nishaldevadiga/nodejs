@@ -17,7 +17,8 @@ async function main() {
         await client.connect();
 
         const db = client.db(database);
-        const user = (await db.collection('users').find({ age: 49}).toArray()).length;
+       //6a6b91bd40ad6d28ee11f33d
+       
 
         console.log(user);
     } catch (error) {
