@@ -9,7 +9,7 @@ const connectionURL = 'mongodb://127.0.0.1:27018';
 const database = 'task-manager';
 
 const id=new ObjectID();
-console.log(id);
+console.log("id",id);
 console.log(id.getTimestamp());
 
 async function main() {
@@ -19,16 +19,14 @@ async function main() {
         await client.connect();
         const db = client.db(database);
 
-        const result = await db.collection('users').insertMany([
+        const result = await db.collection('users').insertOne(
             {
-                name: 'pushpa',
+                _id:id,
+                name: 'king kong',
                 age: 49
 
-            }, {
-                name: 'sukumar',
-                age: 55
             }
-        ]);
+        );
 
         console.log(result.insertedIds);
 
@@ -40,4 +38,4 @@ async function main() {
     }
 }
 
-//main();
+main();
