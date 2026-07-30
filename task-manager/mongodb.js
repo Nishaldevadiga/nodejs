@@ -9,6 +9,7 @@ const connectionURL = 'mongodb://127.0.0.1:27018';
 const database = 'task-manager';
 
 const id=new ObjectID();
+console.log(id);
 
 async function main() {
     const client = new MongoClient(connectionURL);
@@ -38,4 +39,4 @@ async function main() {
     }
 }
 
-main();
+//main();
