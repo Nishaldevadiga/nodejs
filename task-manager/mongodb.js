@@ -14,10 +14,18 @@ async function main() {
         await client.connect();
         const db = client.db(database);
 
-        await db.collection('users').insertOne({
-            name: 'iop',
-            age: 29
-        })
+        const result = await db.collection('users').insertMany([
+            {
+                name: 'pushpa',
+                age: 49
+
+            }, {
+                name: 'sukumar',
+                age: 55
+            }
+        ]);
+
+        console.log(result.insertedIds);
 
         console.log('document inserted');
     } catch (err) {
