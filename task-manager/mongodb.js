@@ -10,6 +10,7 @@ const database = 'task-manager';
 
 const id=new ObjectID();
 console.log(id);
+console.log(id.getTimestamp());
 
 async function main() {
     const client = new MongoClient(connectionURL);
