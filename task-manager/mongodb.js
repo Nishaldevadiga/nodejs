@@ -12,13 +12,18 @@ async function main() {
 
     try {
         await client.connect();
-        const db=client.db(database);
-        db.collection('users').insertOne({
-            name:"Nishal",
-            age:28
+        const db = client.db(database);
+
+        await db.collection('users').insertOne({
+            name: 'iop',
+            age: 29
         })
+
+        console.log('document inserted');
     } catch (err) {
-        console.log('error');
+        console.log(err);
+    } finally {
+        await client.close();
     }
 }
 
