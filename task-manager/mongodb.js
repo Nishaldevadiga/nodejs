@@ -13,7 +13,9 @@ async function main() {
     try {
         await client.connect();
         const db=client.db(database);
-        db.collection()
+        db.collection('users').insertOne({
+            
+        })
     } catch (err) {
         console.log('error');
     }
