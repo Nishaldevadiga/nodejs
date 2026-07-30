@@ -12,7 +12,8 @@ async function main() {
 
     try {
         await client.connect();
-        console.log('success');
+        const db=client.db(database);
+        db.collection()
     } catch (err) {
         console.log('error');
     }
