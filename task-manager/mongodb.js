@@ -8,6 +8,8 @@ const ObjectID=mongodb.ObjectId;
 const connectionURL = 'mongodb://127.0.0.1:27018';
 const database = 'task-manager';
 
+const id=new ObjectID();
+
 async function main() {
     const client = new MongoClient(connectionURL);
 
