@@ -5,5 +5,10 @@ mongoose.connect('mongodb://127.0.0.1:27018/task-manager-api',{
 })
 
 const User=mongoose.model('User',{
-  
+  name:{
+ type:String
+  },
+  age:{
+    type:Number
+  }
 })
