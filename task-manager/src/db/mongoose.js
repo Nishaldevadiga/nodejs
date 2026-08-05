@@ -20,6 +20,7 @@ const User = mongoose.model('User', {
     },
     age: {
         type: Number,
+        default:0,
         validate(value){
             if(value<0){
                 throw new Error('age cannot be less than 0');
@@ -34,7 +35,7 @@ const me = new User({
    
     name:'kiran',
     age:30,
-    email:'kiran'
+    email:'kiran@gmail.com'
 })
 
 me.save().then((res)=>{
