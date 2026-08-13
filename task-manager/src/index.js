@@ -9,6 +9,10 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
+})
+
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api').then(() => {
     console.log('Connected to MongoDB');
 }).catch((error) => {
@@ -21,12 +25,18 @@ app.post('/users', (req, res) => {
     user.save().then(() => {
         res.send(user)
     }).catch((err) => {
-       console.log(err);
+        res.status(400);
+        res.send(err);
     })
 })
 
-app.listen(port, () => {
-    console.log('Server is up on port ' + port);
+app.get('/users', (req, res) => {
+    User.find({}).then((users) => {
+        res.send(users);
+    }).catch((err) => {
+        res.status(500);
+        res.send(err);
+    })
 })
 
 
