@@ -9,15 +9,24 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.listen(port, () => {
-    console.log('Server is up on port ' + port);
-})
+const startApp = (currentPort) => {
+    const server = app.listen(currentPort, () => {
+        console.log('Server is up on port ' + currentPort)
+    })
 
-mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api').then(() => {
-    console.log('Connected to MongoDB');
-}).catch((error) => {
-    console.log('MongoDB connection error:', error);
-})
+    server.on('error', (error) => {
+        if (error.code === 'EADDRINUSE' && currentPort === port) {
+            console.warn(`Port ${currentPort} is already in use, trying ${currentPort + 1}`)
+            startApp(currentPort + 1)
+            return
+        }
+
+        console.error('Server failed to start:', error)
+        process.exit(1)
+    })
+
+    return server
+}
 
 app.post('/users', (req, res) => {
     const user = new User(req.body)
@@ -38,6 +47,30 @@ app.get('/users', (req, res) => {
         res.send(err);
     })
 })
+
+app.get('/users/:id', (req, res) => {
+    User.findById(req.params.id).then((user) => {
+        res.send(user);
+    }).catch((err) => {
+        res.status(500);
+        res.send(err);
+    })
+})
+
+const startServer = async () => {
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
+            serverSelectionTimeoutMS: 5000,
+        })
+        console.log('Connected to MongoDB')
+    } catch (error) {
+        console.error('Failed to start application:', error)
+        process.exit(1)
+    }
+}
+
+startServer()
+startApp(port)
 
 
 
